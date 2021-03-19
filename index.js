@@ -6,9 +6,11 @@ console.log(JSON.stringify(data));//
 var path = data.key;
 var value = data.newValue;
 var index = value.length - 1;
-var messageObj =value[index];
-if (messageObj.source=== "visitor") {
-fetch("https://www.omdbapi.com?t="+ messageObj.text +"&apikey=a5599b52")
+var movieObjalue[index];
+console.log("***index****", index);
+console.log("***index****", JSON.stringify(movieObj));
+if (movieObj.source=== "visitor") {
+fetch("https://www.omdbapi.com?t="+ movieObj.text +"&apikey=28f086dd")
 .then(response=> response.json())
 .then(res=> {
 // console.log(res)
