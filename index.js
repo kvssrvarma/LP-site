@@ -34,7 +34,7 @@ appDiv.innerHTML = res.Error;
 console.log(err);
 });
 }
-};;
+};
 const notifyWhenDone =function(err) {
 if (err){
 // Do something with the error
