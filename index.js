@@ -35,7 +35,7 @@ console.log(err);
 });
 }
 };
-const notifyWhenDone =function(err) {
+var notifyWhenDone =function(err) {
 if (err){
 // Do something with the error
 console.log("error",err);
