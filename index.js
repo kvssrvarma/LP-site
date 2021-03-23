@@ -27,7 +27,7 @@ document.getElementById("Director").innerHTML = res.Director;
 document.getElementById("Awards").innerHTML = res.Awards;
 document.getElementById("imdbRating").innerHTML = res.imdbRating;
 } else {
-appDiv.innerHTML = res.Error;
+document.getElementById("errMessage").innerHTML = res.Error;
 }
 })
 .catch(err => {
