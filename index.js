@@ -6,7 +6,8 @@ var value = data.newValue;
 var index = value.length - 1;
 let queryObj = value[index];
 console.log("***index****", index);
-console.log("***index****", JSON.stringify(movieObj));
+console.log("***index****", JSON.stringify(queryObj));
+alert(queryObj);
 if (queryObj.source === "visitor") {
 let updatedQueryObj = queryObj.replace(/< >/g, "<>");
 document.getElementById("queryText").innerHTML = updatedQueryObj;
