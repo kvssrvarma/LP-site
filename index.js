@@ -1,3 +1,5 @@
+pathToData = "chatTranscript.lines";
+
 var updateCallback = function(data) {
 console.log("***updateCallback****");
 console.log(JSON.stringify(data));
@@ -10,7 +12,7 @@ console.log("***index****", JSON.stringify(queryObj));
 alert(queryObj);
 if (queryObj.source === "visitor") {
 let updatedQueryObj = queryObj.replace(/< >/g, "<>");
-document.getElementById("queryText").innerHTML = updatedQueryObj;
+document.getElementById("queryText").value = updatedQueryObj;
 }
 };
 var readQuery = function(){
@@ -31,5 +33,13 @@ var readQuery = function(){
     var data = {text: changedString};
 	lpTag.agentSDK.command(cmdName, data, notifyWhenDone);
 }
+var notifyWhenDone =function(err) {
+if (err){
+// Do something with the error
+console.log("error",err);
+}
+// called when the bind is completed successfully,
+// or when the action terminated with an error.
+};
 lpTag.agentSDK.init({});
 lpTag.agentSDK.bind(pathToData,updateCallback, notifyWhenDone);
