@@ -12,7 +12,7 @@ console.log("***index****", JSON.stringify(queryObj));
 alert(queryObj);
 if (queryObj.source === "visitor") {
 //let updatedQueryObj = queryObj.replace(/< >/g, "<>");
-document.getElementById("queryText").innerHTML = "This is replaced text";
+document.getElementById("updatedQuery").innerHTML = "This is replaced text";
 }
 };
 var readQuery = function(){
