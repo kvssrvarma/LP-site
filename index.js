@@ -32,7 +32,7 @@ var readQuery = function(){
         // called when the command is completed successfully,
         // or when the action terminated with an error.
     };
-	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
+	var cmdName = lpTag.agentSDK.cmdNames.notify; // = "Write ChatLine"
     var data = {text: changedString};
 	lpTag.agentSDK.command(cmdName, data, notifyWhenDone);
 }
