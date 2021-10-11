@@ -1,50 +1,34 @@
-pathToData = "chatTranscript.lines";
-
 var updateCallback = function(data) {
-console.log("***updateCallback****"); // Do something with the returning data//
-console.log(JSON.stringify(data)); //
+console.log("***updateCallback****");
+console.log(JSON.stringify(data));
 var path = data.key;
 var value = data.newValue;
 var index = value.length - 1;
-var movieObj = value[index];
+let queryObj = value[index];
 console.log("***index****", index);
 console.log("***index****", JSON.stringify(movieObj));
-if (movieObj.source === "visitor") {
-fetch("https://www.omdbapi.com?t=" + movieObj.text + "&apikey=28f086dd")
-.then(response => response.json())
-.then(res => {
-// console.log(res)
-if (res.Response === "True") {
-document.getElementById("Title").innerHTML = res.Title;
-document.getElementById("Year").innerHTML = res.Year;
-document.getElementById("Rated").innerHTML = res.Rated;
-document.getElementById("Actors").innerHTML = res.Actors;
-document.getElementById("Genre").innerHTML = res.Genre;
-document.getElementById("Plot").innerHTML = res.Plot;
-document.getElementById("Released").innerHTML = res.Released;
-document.getElementById("Runtime").innerHTML = res.Runtime;
-document.getElementById("Director").innerHTML = res.Director;
-document.getElementById("Awards").innerHTML = res.Awards;
-document.getElementById("imdbRating").innerHTML = res.imdbRating;
-} else {
-document.getElementById("errMessage").innerHTML = res.Error;
-}
-})
-.catch(err => {
-console.log(err);
-});
+if (queryObj.source === "visitor") {
+let updatedQueryObj = queryObj.replace(/< >/g, "<>");
+document.getElementById("queryText").innerHTML = updatedQueryObj;
 }
 };
-var notifyWhenDone =function(err) {
-if (err){
-// Do something with the error
-console.log("error",err);
+var readQuery = function(){
+	alert("hi");
+	//alert(document.getElementsByName("queryText").value);
+	let queryText = document.getElementById("queryText").value;
+	alert(queryText);
+	let changedString = queryText.replace(/<>/g, "< >");
+	alert(changedString);
+	var notifyWhenDone = function(err) {
+        if (err) {
+            // Do something with the error
+        }
+        // called when the command is completed successfully,
+        // or when the action terminated with an error.
+    };
+	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
+    var data = {text: changedString};
+	lpTag.agentSDK.command(cmdName, data, notifyWhenDone);
 }
-// called when the bind is completed successfully,
-// or when the action terminated with an error.
-};
 lpTag.agentSDK.init({});
 lpTag.agentSDK.bind(pathToData,updateCallback, notifyWhenDone);
-
-
-
