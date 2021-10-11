@@ -9,14 +9,17 @@ var index = value.length - 1;
 let queryObj = value[index];
 console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
-alert(queryObj);
 if (queryObj.source === "visitor") {
 //let updatedQueryObj = queryObj.replace(/< >/g, "<>");
-document.getElementById("updatedQuery").innerHTML = "This is replaced text";
+let queryObjText = queryObj.text;
+alert(queryObjText);
+let updatedQueryObjText = queryObjText.replace(/< >/g, "<>");
+alert(updatedQueryObjText);
+document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
 }
 };
 var readQuery = function(){
-	alert("hi");
+	//alert("hi");
 	//alert(document.getElementsByName("queryText").value);
 	let queryText = document.getElementById("queryText").value;
 	alert(queryText);
