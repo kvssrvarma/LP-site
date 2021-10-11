@@ -11,7 +11,7 @@ console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
 alert(queryObj);
 if (queryObj.source === "visitor") {
-let updatedQueryObj = queryObj.replace(/< >/g, "<>");
+//let updatedQueryObj = queryObj.replace(/< >/g, "<>");
 document.getElementById("queryText").innerHTML = "This is replaced text";
 }
 };
