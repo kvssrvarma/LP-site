@@ -12,12 +12,12 @@ console.log("***index****", JSON.stringify(queryObj));
 if (queryObj.source === "visitor") {
 let queryObjText = queryObj.text;
 let updated = false;
-if(queryObjText.includes("<")){
-let updatedQueryObjText = queryObjText.replace(/</g, "lt");
+if(queryObjText.includes("gt1")){
+let updatedQueryObjText = queryObjText.replace(/gt1/g, ">");
 updated = true;
 }
-if(queryObjText.includes(">")){
-let updatedQueryObjText = queryObjText.replace(/>/g, "gt");
+if(queryObjText.includes("lt1")){
+let updatedQueryObjText = queryObjText.replace(/lt1/g, "<");
 updated = true;
 }
 if(updated){
@@ -27,7 +27,16 @@ document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
 };
 var readQuery = function(){
 	let queryText = document.getElementById("queryText").value;
-	let changedString = (queryText.replace(/</g, "lt")).replace((/>/g, "gt"));
+	//let changedString = (queryText.replace(/gt1/g, ">")).replace((/lt1/g, "<"));
+	
+	var mapObj = {
+	>:"gt1",
+	<:"lt1"
+	};
+	let changedString = queryText.replace(/>|</gi, function(matched){
+	return mapObj[matched];
+	});
+	
 	var notifyWhenDone = function(err) {
         if (err) {
             // Do something with the error
