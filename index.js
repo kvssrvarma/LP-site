@@ -28,7 +28,7 @@ document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
 var readQuery = function(){
 	let queryText = document.getElementById("queryText").value;
 	let changedString = queryText.replace(/gt1/g, ">");
-	changedString = changedString.replace((/lt1/g, "<");
+	changedString = changedString.replace(/lt1/g, "<");
 	
 	var notifyWhenDone = function(err) {
         if (err) {
