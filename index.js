@@ -37,6 +37,11 @@ var readQuery = function(){
 	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
     var data = {text: changedString};
 	lpTag.agentSDK.command(cmdName, data, notifyWhenDone);
+	lpTag.hooks.push({
+	name: "BEFORE_SEND_VISITOR_LINE",
+	callback: function(options) {
+	}
+});
 }
 var notifyWhenDone =function(err) {
 if (err){
