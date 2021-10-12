@@ -12,10 +12,12 @@ console.log("***index****", JSON.stringify(queryObj));
 if (queryObj.source === "visitor") {
 //let updatedQueryObj = queryObj.replace(/< >/g, "<>");
 let queryObjText = queryObj.text;
-alert(queryObjText);
+//alert(queryObjText);
+if(queryObjText.includes("< >")){
 let updatedQueryObjText = queryObjText.replace(/< >/g, "<>");
-alert(updatedQueryObjText);
+//alert(updatedQueryObjText);
 document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
+}
 }
 };
 var readQuery = function(){
