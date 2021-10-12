@@ -28,12 +28,12 @@ document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
 var readQuery = function(){
 	let queryText = document.getElementById("queryText").value;
 	//let changedString = (queryText.replace(/gt1/g, ">")).replace((/lt1/g, "<"));
-	
+	let changedString = ""
 	var mapObj = {
 	>:"gt1",
 	<:"lt1"
 	};
-	let changedString = queryText.replace(/>|</gi, function(matched){
+	changedString = queryText.replace(/>|</gi, function(matched){
 	return mapObj[matched];
 	});
 	
