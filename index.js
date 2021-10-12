@@ -10,23 +10,24 @@ let queryObj = value[index];
 console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
 if (queryObj.source === "visitor") {
-//let updatedQueryObj = queryObj.replace(/< >/g, "<>");
 let queryObjText = queryObj.text;
-//alert(queryObjText);
-if(queryObjText.includes("< >")){
-let updatedQueryObjText = queryObjText.replace(/< >/g, "<>");
-//alert(updatedQueryObjText);
+let updated = false;
+if(queryObjText.includes("<")){
+let updatedQueryObjText = queryObjText.replace(/</g, "lt");
+updated = true;
+}
+if(queryObjText.includes(">")){
+let updatedQueryObjText = queryObjText.replace(/>/g, "gt");
+updated = true;
+}
+if(updated){
 document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
 }
 }
 };
 var readQuery = function(){
-	//alert("hi");
-	//alert(document.getElementsByName("queryText").value);
 	let queryText = document.getElementById("queryText").value;
-	alert(queryText);
-	let changedString = queryText.replace(/<>/g, "< >");
-	alert(changedString);
+	let changedString = (queryText.replace(/</g, "lt")).replace((/>/g, "gt"));
 	var notifyWhenDone = function(err) {
         if (err) {
             // Do something with the error
@@ -35,7 +36,7 @@ var readQuery = function(){
         // or when the action terminated with an error.
     };
 	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
-    var data = {text: changedString};
+    	var data = {text: changedString};
 	lpTag.agentSDK.command(cmdName, data, notifyWhenDone);
 	lpTag.hooks.push({
 	name: "BEFORE_SEND_VISITOR_LINE",
