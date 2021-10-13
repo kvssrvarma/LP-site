@@ -15,11 +15,15 @@ let updated = false;
 if(queryObjText.includes("gt1")){
 let updatedQueryObjText = queryObjText.replace(/gt1/g, ">");
 updated = true;
+if(updatedQueryObjText.includes("lt1")){
+let updatedQueryObjText = updatedQueryObjText.replace(/lt1/g, "<");
 }
-if(queryObjText.includes("lt1")){
+}
+else if(queryObjText.includes("lt1")){
 let updatedQueryObjText = queryObjText.replace(/lt1/g, "<");
 updated = true;
 }
+
 if(updated){
 document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
 }
