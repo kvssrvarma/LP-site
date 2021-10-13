@@ -7,20 +7,21 @@ var path = data.key;
 var value = data.newValue;
 var index = value.length - 1;
 let queryObj = value[index];
+let updatedQueryObjText = ""
 console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
 if (queryObj.source === "visitor") {
 let queryObjText = queryObj.text;
 let updated = false;
 if(queryObjText.includes("gt1")){
-let updatedQueryObjText = queryObjText.replace(/gt1/g, ">");
+updatedQueryObjText = queryObjText.replace(/gt1/g, ">");
 updated = true;
 if(updatedQueryObjText.includes("lt1")){
-let updatedQueryObjText = updatedQueryObjText.replace(/lt1/g, "<");
+updatedQueryObjText = updatedQueryObjText.replace(/lt1/g, "<");
 }
 }
 else if(queryObjText.includes("lt1")){
-let updatedQueryObjText = queryObjText.replace(/lt1/g, "<");
+updatedQueryObjText = queryObjText.replace(/lt1/g, "<");
 updated = true;
 }
 
