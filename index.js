@@ -7,7 +7,7 @@ var path = data.key;
 var value = data.newValue;
 var index = value.length - 1;
 let queryObj = value[index];
-let updatedQueryObjText = ""
+let updatedQueryObjText = "";
 console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
 if (queryObj.source === "visitor") {
