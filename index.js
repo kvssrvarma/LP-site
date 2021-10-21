@@ -13,15 +13,15 @@ console.log("***index****", JSON.stringify(queryObj));
 if (queryObj.source === "visitor") {
 let queryObjText = queryObj.text;
 let updated = false;
-if(queryObjText.includes("gt1")){
-updatedQueryObjText = queryObjText.replace(/gt1/g, ">");
+if(queryObjText.includes("&gt;")){
+updatedQueryObjText = queryObjText.replace(/&gt;/g, ">");
 updated = true;
-if(updatedQueryObjText.includes("lt1")){
-updatedQueryObjText = updatedQueryObjText.replace(/lt1/g, "<");
+if(updatedQueryObjText.includes("&lt;")){
+updatedQueryObjText = updatedQueryObjText.replace(/&lt;/g, "<");
 }
 }
-else if(queryObjText.includes("lt1")){
-updatedQueryObjText = queryObjText.replace(/lt1/g, "<");
+else if(queryObjText.includes("&lt;")){
+updatedQueryObjText = queryObjText.replace(/&lt;/g, "<");
 updated = true;
 }
 
@@ -32,8 +32,8 @@ document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
 };
 var readQuery = function(){
 	let queryText = document.getElementById("queryText").value;
-	let changedString = queryText.replace(/>/g, "gt1");
-	changedString = changedString.replace(/</g, "lt1");
+	let changedString = queryText.replace(/>/g, "&gt;");
+	changedString = changedString.replace(/</g, "&lt;");
 	
 	var notifyWhenDone = function(err) {
         if (err) {
