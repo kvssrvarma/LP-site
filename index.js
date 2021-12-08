@@ -45,3 +45,4 @@ var readQuery = function(){
 }
 
 lpTag.agentSDK.init({});
+lpTag.agentSDK.bind(pathToData,updateCallback, notifyWhenDone);
