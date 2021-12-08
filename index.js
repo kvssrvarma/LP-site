@@ -15,14 +15,14 @@ let queryObjText = queryObj.text;
 alert("queryObjText is"+ queryObjText);
 let updated = false;
 if(queryObjText.includes("LPGT")){
-updatedQueryObjText = queryObjText.replace(/LPGT/g, ">");
+updatedQueryObjText = queryObjText.replace(/LPGT/g, "&gt;");
 updated = true;
 if(updatedQueryObjText.includes("LPLT")){
-updatedQueryObjText = updatedQueryObjText.replace(/LPLT/g, "<");
+updatedQueryObjText = updatedQueryObjText.replace(/LPLT/g, "&lt;");
 }
 }
 else if(queryObjText.includes("LPLT")){
-updatedQueryObjText = queryObjText.replace(/LPLT/g, "<");
+updatedQueryObjText = queryObjText.replace(/LPLT/g, "&lt;");
 updated = true;
 }
 if(updated){
