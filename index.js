@@ -24,6 +24,11 @@ else if(queryObjText.includes("LPLT")){
 updatedQueryObjText = queryObjText.replace(/LPLT/g, "<");
 updated = true;
 }
+if(updated){
+document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
+}
+}
+};
 	
 var readQuery = function(){
 	let queryText = document.getElementById("queryText").value;
