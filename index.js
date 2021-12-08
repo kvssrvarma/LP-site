@@ -11,8 +11,8 @@ let updatedQueryObjText = "";
 console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
 if (queryObj.source === "visitor") {
-alert("queryObjText is"+ queryObjText);
 let queryObjText = queryObj.text;
+alert("queryObjText is"+ queryObjText);
 let updated = false;
 if(queryObjText.includes("LPGT")){
 updatedQueryObjText = queryObjText.replace(/LPGT/g, ">");
