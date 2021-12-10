@@ -12,7 +12,6 @@ console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
 if (queryObj.source === "visitor") {
 let queryObjText = queryObj.text;
-alert("queryObjText is"+ queryObjText);
 let updated = false;
 if(queryObjText.includes("LPGT")){
 updatedQueryObjText = queryObjText.replace(/LPGT/g, "&gt;");
@@ -26,7 +25,6 @@ updatedQueryObjText = queryObjText.replace(/LPLT/g, "&lt;");
 updated = true;
 }
 if(updated){
-alert("updatedqueryObjText is"+ updatedQueryObjText);
 document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
 }
 }
