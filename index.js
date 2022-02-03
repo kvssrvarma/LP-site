@@ -60,6 +60,7 @@ console.log("***consumerId****", consumerId);
 //if(customerName != ""){
 
 //}
+userText = "Please verify your Express Payment information is correct: </br> Your Name:" +visitorName+ " </br>Your Payment Amount: "+consumerId+" </br>Your Payment Posting Date: PAYMENTDATE";
 };
 
 
@@ -72,9 +73,9 @@ console.log("***consumerId****", consumerId);
 };
 lpTag.agentSDK.bind(pathtoDataConsumer, updateCallbackConsumer, notifyWhenDoneConsumer);
 
-if(typeof visitorName !='undefined'){
-userText = "Please verify your Express Payment information is correct: </br> Your Name:" +visitorName+ " </br>Your Payment Amount: "+consumerId+" </br>Your Payment Posting Date: PAYMENTDATE";
-}
+
+
+
 document.getElementById("userDetails").innerHTML = userText;
 
 var readQuery = function(){
