@@ -1,8 +1,8 @@
 pathToData = "visitorInfo.visitorName";
 
 var userText;
-let visitorName;
-let consumerId;
+var visitorName;
+var consumerId;
 var updateCallback = function(data) {
 console.log("***updateCallback****");
 console.log(JSON.stringify(data));
