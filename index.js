@@ -11,7 +11,18 @@ let updatedQueryObjText = "";
 console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
 };
-	
+
+var queryString = window.location.search;
+console.log(queryString);
+var urlParams = new URLSearchParams(queryString);
+var customerName = urlParams.get('customerName');
+//alert(customerName);
+let userText = "Please verify your Express Payment information is correct: Your Name: customerName Your Payment Amount: PAYMENT Your Payment Posting Date: PAYMENTDATE";
+
+//if(customerName != ""){
+document.getElementById("userDetails").innerHTML = userText;
+//}
+
 var readQuery = function(){
 	let queryText = document.getElementById("queryText").value;
 	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
