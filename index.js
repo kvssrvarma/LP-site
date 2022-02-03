@@ -1,4 +1,4 @@
-pathToData = "visitorInfo.visitorName";
+pathToData = "SDE.customerDetails";
 
 var userText;
 var visitorName;
@@ -19,8 +19,9 @@ console.log("***visitorName****", visitorName);
 //var customerName = urlParams.get('CustomerName');
 //alert(customerName);
 //userText = "Please verify your Express Payment information is correct: </br> Your Name:" +visitorName+ " </br>Your Payment Amount: PAYMENT </br>Your Payment Posting Date: PAYMENTDATE";
+userText=visitorName;
 
-doNextCallback();
+//doNextCallback();
 
 //if(customerName != ""){
 document.getElementById("userDetails").innerHTML = userText;
