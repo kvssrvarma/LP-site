@@ -38,48 +38,10 @@ document.getElementById("userDetails").innerHTML = userText;
 };
 lpTag.agentSDK.bind(pathToData, updateCallback, notifyWhenDone);
 
-pathtoDataConsumer = "visitorInfo.visitorId";
-
-
-var doNextCallback = function(){
-	
-
-///////////////////
-
-var updateCallbackConsumer = function(data) {
-console.log("***updateCallback****");
-console.log(JSON.stringify(data));
-var path = data.key;
-var value = data.newValue;
-consumerId = value;
-console.log("***consumerId****", consumerId);
+//pathtoDataConsumer = "visitorInfo.visitorId";
 
 
 
-//var queryString = window.location.search;
-//console.log(queryString);
-//var urlParams = new URLSearchParams(queryString);
-//var customerName = urlParams.get('CustomerName');
-//alert(customerName);
-
-
-//if(customerName != ""){
-
-//}
-userText = "Please verify your Express Payment information is correct: </br> Your Name:" +visitorName+ " </br>Your Payment Amount: "+consumerId+" </br>Your Payment Posting Date: PAYMENTDATE";
-document.getElementById("userDetails").innerHTML = userText;
-};
-
-
- var notifyWhenDoneConsumer = function(err) {
-        if (err) {
-            // Do something with the error
-        }
-        // called when the bind is completed successfully,
-        // or when the action terminated with an error.
-};
-lpTag.agentSDK.bind(pathtoDataConsumer, updateCallbackConsumer, notifyWhenDoneConsumer);
-}
 //////////////////
 
 
