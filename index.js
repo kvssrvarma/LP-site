@@ -17,14 +17,14 @@ console.log(queryString);
 var urlParams = new URLSearchParams(queryString);
 var customerName = urlParams.get('customerName');
 //alert(customerName);
-let userText = "Please verify your Express Payment information is correct: Your Name: customerName Your Payment Amount: PAYMENT Your Payment Posting Date: PAYMENTDATE";
+let userText = "Please verify your Express Payment information is correct: </br> Your Name:" +customerName+ " </br>Your Payment Amount: PAYMENT </br>Your Payment Posting Date: PAYMENTDATE";
 
 //if(customerName != ""){
 document.getElementById("userDetails").innerHTML = userText;
 //}
 
 var readQuery = function(){
-	let queryText = document.getElementById("queryText").value;
+	let queryText = document.getElementById("userDetails").value;
 	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
 	var data = {text: queryText};
     lpTag.agentSDK.command(cmdName, data);
