@@ -24,9 +24,9 @@ document.getElementById("userDetails").innerHTML = userText;
 //}
 
 var readQuery = function(){
-	let queryText = document.getElementById("userDetails").value;
+	//let queryText = document.getElementById("userDetails").value;
 	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
-	var data = {text: queryText};
+	var data = {text: userText};
     lpTag.agentSDK.command(cmdName, data);
 	
 }
