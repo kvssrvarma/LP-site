@@ -1,57 +1,60 @@
-pathToData = "SDE.customerDetails";
+pathToData = "visitorInfo.visitorName";
 
 var userText;
 var visitorName;
 var consumerId;
+
 var updateCallback = function(data) {
-console.log("***updateCallback****");
-console.log(JSON.stringify(data));
-var path = data.key;
-var value = data.newValue;
-visitorName = value;
-console.log("***visitorName****", visitorName);
+	console.log("***updateCallback****");
+	console.log(JSON.stringify(data));
+	var path = data.key;
+	var value = data.newValue;
+	visitorName = value;
+	console.log("***visitorName****", visitorName);
 
+	//calling the second method to read the second variable
+	doNextCallback();
+	document.getElementById("userDetails").innerHTML = userText;
 
+};
+//Can be used to handle error scenario
+ var notifyWhenDone = function(err) {
+	if (err) {
+		// Do something with the error
+	}
+	// called when the bind is completed successfully,
+	// or when the action terminated with an error.
+};
 
-//var queryString = window.location.search;
-//console.log(queryString);
-//var urlParams = new URLSearchParams(queryString);
-//var customerName = urlParams.get('CustomerName');
-//alert(customerName);
-//userText = "Please verify your Express Payment information is correct: </br> Your Name:" +visitorName+ " </br>Your Payment Amount: PAYMENT </br>Your Payment Posting Date: PAYMENTDATE";
-userText=visitorName;
+lpTag.agentSDK.bind(pathToData, updateCallback, notifyWhenDone);
 
-//doNextCallback();
+//path to the second variable
+pathtoDataConsumer = "visitorInfo.visitorId";
 
-//if(customerName != ""){
-document.getElementById("userDetails").innerHTML = userText;
-//}
+//Second callback function to retrieve second variable
+var doNextCallback = function(){
+	var updateCallbackConsumer = function(data) {
+	console.log("***updateCallback****");
+	console.log(JSON.stringify(data));
+	var path = data.key;
+	var value = data.newValue;
+	consumerId = value;
+	console.log("***consumerId****", consumerId);
+	userText = "Please verify your Express Payment information is correct: </br> Your Name:" +visitorName+ " </br>Your Payment Amount: "+consumerId+" </br>Your Payment Posting Date: PAYMENTDATE";
 };
 
 
- var notifyWhenDone = function(err) {
+ var notifyWhenDoneConsumer = function(err) {
         if (err) {
             // Do something with the error
         }
         // called when the bind is completed successfully,
         // or when the action terminated with an error.
 };
-lpTag.agentSDK.bind(pathToData, updateCallback, notifyWhenDone);
-
-//pathtoDataConsumer = "visitorInfo.visitorId";
-
-
-
-//////////////////
-
-
-
-
-
-//document.getElementById("userDetails").innerHTML = userText;
-
+lpTag.agentSDK.bind(pathtoDataConsumer, updateCallbackConsumer, notifyWhenDoneConsumer);
+}
+//Function to copy text to chat window
 var readQuery = function(){
-	//let queryText = document.getElementById("userDetails").value;
 	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
 	var data = {text: userText};
     lpTag.agentSDK.command(cmdName, data);
