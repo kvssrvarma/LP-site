@@ -15,7 +15,8 @@ console.log("***index****", JSON.stringify(queryObj));
 var readQuery = function(){
 	let queryText = document.getElementById("queryText").value;
 	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
-    lpTag.agentSDK.command(cmdName, queryText);
+	var data = {text: queryText};
+    lpTag.agentSDK.command(cmdName, data);
 	
 }
 
