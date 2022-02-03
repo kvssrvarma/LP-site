@@ -15,7 +15,7 @@ console.log("***index****", JSON.stringify(queryObj));
 var queryString = window.location.search;
 console.log(queryString);
 var urlParams = new URLSearchParams(queryString);
-var customerName = urlParams.get('customerName');
+var customerName = urlParams.get('CustomerName');
 //alert(customerName);
 let userText = "Please verify your Express Payment information is correct: </br> Your Name:" +customerName+ " </br>Your Payment Amount: PAYMENT </br>Your Payment Posting Date: PAYMENTDATE";
 
