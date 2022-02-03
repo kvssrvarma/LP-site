@@ -10,35 +10,12 @@ let queryObj = value[index];
 let updatedQueryObjText = "";
 console.log("***index****", index);
 console.log("***index****", JSON.stringify(queryObj));
-if (queryObj.source === "visitor") {
-let queryObjText = queryObj.text;
-let updated = false;
-if(queryObjText.includes("LPGT")){
-updatedQueryObjText = queryObjText.replace(/LPGT/g, "&gt;");
-updated = true;
-if(updatedQueryObjText.includes("LPLT")){
-updatedQueryObjText = updatedQueryObjText.replace(/LPLT/g, "&lt;");
-}
-}
-else if(queryObjText.includes("LPLT")){
-updatedQueryObjText = queryObjText.replace(/LPLT/g, "&lt;");
-updated = true;
-}
-if(updated){
-document.getElementById("updatedQuery").innerHTML = updatedQueryObjText;
-}
-}
 };
 	
 var readQuery = function(){
 	let queryText = document.getElementById("queryText").value;
-	let changedString = queryText.replace(/>/g, "LPGT");
-	changedString = changedString.replace(/</g, "LPLT");
-	
-
 	var cmdName = lpTag.agentSDK.cmdNames.write; // = "Write ChatLine"
-        var data = {text: changedString};
-	lpTag.agentSDK.command(cmdName, data);
+    lpTag.agentSDK.command(cmdName, queryText);
 	
 }
 
