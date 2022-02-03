@@ -37,7 +37,7 @@ document.getElementById("userDetails").innerHTML = userText;
 };
 lpTag.agentSDK.bind(pathToData, updateCallback, notifyWhenDone);
 
-pathtoDataConsumer = "SDE.customerDetails.customerId";
+pathtoDataConsumer = "visitorInfo.visitorId";
 
 
 var doNextCallback = function(){
