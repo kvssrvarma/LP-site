@@ -1,6 +1,8 @@
 pathToData = "visitorInfo.visitorName";
 
 var userText;
+let visitorName;
+let consumerId;
 var updateCallback = function(data) {
 console.log("***updateCallback****");
 console.log(JSON.stringify(data));
@@ -8,6 +10,7 @@ var path = data.key;
 var value = data.newValue;
 let visitorName = value;
 console.log("***visitorName****", visitorName);
+
 
 
 //var queryString = window.location.search;
@@ -21,6 +24,17 @@ userText = "Please verify your Express Payment information is correct: </br> You
 document.getElementById("userDetails").innerHTML = userText;
 //}
 };
+
+
+ var notifyWhenDone = function(err) {
+        if (err) {
+            // Do something with the error
+        }
+        // called when the bind is completed successfully,
+        // or when the action terminated with an error.
+};
+lpTag.agentSDK.bind(pathToData, updateCallback, notifyWhenDone);
+
 
 var readQuery = function(){
 	//let queryText = document.getElementById("userDetails").value;
